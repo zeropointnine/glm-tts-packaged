@@ -165,7 +165,7 @@ Through RL optimization, GLM-TTS_RL reduces the CER metric from 1.03 to 0.89 com
 
 ## Evaluation Results
 
-Evaluated on `seed-tts-eval`. To maintain consistency with the original evaluation, inference was performed without the `--phoneme` flag.
+Evaluated on `seed-tts-eval zh testset`. To maintain consistency with the original evaluation, inference was performed without the `--phoneme` flag.
 
 **CER**: Character Error Rate (lower is better $\downarrow$) | **SIM**: Similarity (higher is better $\uparrow$)
 
