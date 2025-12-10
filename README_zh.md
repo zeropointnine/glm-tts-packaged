@@ -163,7 +163,7 @@ GLM-TTS 采用两阶段设计：第一阶段，基于Llama架构的大型语言�
 
 ## 实验结果
 
-在 `seed-tts-eval` 上进行评估，为与原版评估保持一致，未使用 `--phoneme` 参数进行推理。
+在 `seed-tts-eval中文测试集` 上进行评估，为与原版评估保持一致，未使用 `--phoneme` 参数进行推理。
 **CER**: 字符错误率 (越低越好 $\downarrow$) | **SIM**: 相似度 (越高越好 $\uparrow$)
 
 | Model | CER $\downarrow$ | SIM $\uparrow$ | Open-source |
