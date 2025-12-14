@@ -20,10 +20,10 @@ from __future__ import annotations
 import torch
 from torch import nn
 import torch.nn.functional as F
-from utils import block_mask_util
+from glm_tts.utils import block_mask_util
 from x_transformers.x_transformers import RotaryEmbedding
 
-from flow.modules import (
+from glm_tts.flow.modules import (
     TimestepEmbedding,
     ConvNeXtV2Block,
     ConvPositionEmbedding,

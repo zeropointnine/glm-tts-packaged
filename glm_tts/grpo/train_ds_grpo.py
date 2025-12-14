@@ -35,8 +35,8 @@ import torch.distributed as dist
 import yaml
 import argparse
 from hyperpyyaml import load_hyperpyyaml
-from cosyvoice.utils.executor_grpo import Executor
-from cosyvoice.utils.train_utils_grpo import (
+from glm_tts.cosyvoice.utils.executor_grpo import Executor
+from glm_tts.cosyvoice.utils.train_utils_grpo import (
     init_distributed,
     init_optimizer_and_scheduler,
     init_summarywriter, save_model,
@@ -48,7 +48,7 @@ import numpy as np
 from typing import Any, Dict, List, Optional
 
 from glmtts_inference import load_models
-from grpo.reward_func import reward_function_server
+from glm_tts.grpo.reward_func import reward_function_server
 from glmtts_inference import get_special_token_ids
 import torchaudio
 
@@ -298,7 +298,7 @@ if __name__ == '__main__':
         patterns = yaml.safe_load(f)
         patterns = list(patterns.values())[0]
     
-    from grpo.loaders import loader_lm_rl
+    from glm_tts.grpo.loaders import loader_lm_rl
 
     
     train_data_loader = loader_lm_rl.get_train_loader(

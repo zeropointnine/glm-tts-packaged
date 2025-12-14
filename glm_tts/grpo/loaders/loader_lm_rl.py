@@ -17,9 +17,9 @@ import io
 import time
 import torch
 import torch.distributed as dist
-from grpo.loaders.dataloader.dynamic_batch import BucketizerPipe
-from grpo.loaders.dataloader.feature_loader_rl import FeatureLoader
-from grpo.loaders.dataloader.loader4rl import Loader
+from glm_tts.grpo.loaders.dataloader.dynamic_batch import BucketizerPipe
+from glm_tts.grpo.loaders.dataloader.feature_loader_rl import FeatureLoader
+from glm_tts.grpo.loaders.dataloader.loader4rl import Loader
 from torch.utils.data import DataLoader
 from functools import partial
 import whisper

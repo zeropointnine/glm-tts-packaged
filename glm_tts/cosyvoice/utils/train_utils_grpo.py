@@ -36,11 +36,11 @@ from torch.nn.utils import clip_grad_norm_
 
 from deepspeed.runtime.zero.stage_1_and_2 import estimate_zero2_model_states_mem_needs_all_live
 
-from cosyvoice.utils.scheduler import WarmupLR, NoamHoldAnnealing, ConstantLR, CosineAnnealing
+from glm_tts.cosyvoice.utils.scheduler import WarmupLR, NoamHoldAnnealing, ConstantLR, CosineAnnealing
 from torch.optim.lr_scheduler import CosineAnnealingLR
 
-from grpo.grpo_utils import normalize_rewards_per_group, compute_entropy, compute_kl_loss
-from cosyvoice.utils.common import IGNORE_ID
+from glm_tts.grpo.grpo_utils import normalize_rewards_per_group, compute_entropy, compute_kl_loss
+from glm_tts.cosyvoice.utils.common import IGNORE_ID
 
 def init_distributed(args):
     world_size = int(os.environ.get('WORLD_SIZE', 1))

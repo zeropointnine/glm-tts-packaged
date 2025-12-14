@@ -26,7 +26,7 @@ def get_syn_text():
     return syn_texts
     
 def split_text(syn_texts):
-    from cosyvoice.utils.frontend_utils import split_hard, split_into_min_sentence
+    from glm_tts.cosyvoice.utils.frontend_utils import split_hard, split_into_min_sentence
     
     split_sentences = []
     for uttid, syn_text, emotion in syn_texts:

@@ -20,9 +20,9 @@ from typing import Callable, List
 import numpy as np
 import torch
 
-from grpo.data_types import Episode, MiniBatch
-from llm.glmtts import GLMTTS
-from cosyvoice.utils.common import IGNORE_ID
+from glm_tts.grpo.data_types import Episode, MiniBatch
+from glm_tts.llm.glmtts import GLMTTS
+from glm_tts.cosyvoice.utils.common import IGNORE_ID
 import torchaudio
 import torch.nn.functional as F
 import os

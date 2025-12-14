@@ -21,9 +21,9 @@ import os
 import torch
 import torch.distributed as dist
 import tqdm
-from cosyvoice.utils.train_utils_grpo import update_parameter_and_lr, log_per_step, log_per_save, batch_forward, \
+from glm_tts.cosyvoice.utils.train_utils_grpo import update_parameter_and_lr, log_per_step, log_per_save, batch_forward, \
     batch_backward, save_model, cosyvoice_join
-from grpo.grpo_utils import normalize_rewards_per_group, rollout, normalize_rewards_per_group_token_level, normalize_rewards_per_group_norm_first
+from glm_tts.grpo.grpo_utils import normalize_rewards_per_group, rollout, normalize_rewards_per_group_token_level, normalize_rewards_per_group_norm_first
 import numpy as np
 import math
 

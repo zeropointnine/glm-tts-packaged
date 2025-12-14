@@ -20,12 +20,12 @@ import torch
 import torchaudio
 import tqdm
 
-from cosyvoice.cli.frontend import TTSFrontEnd, SpeechTokenizer, TextFrontEnd
-from utils import file_utils, seed_util
-from utils import tts_model_util, yaml_util
+from glm_tts.cosyvoice.cli.frontend import TTSFrontEnd, SpeechTokenizer, TextFrontEnd
+from glm_tts.utils import file_utils, seed_util
+from glm_tts.utils import tts_model_util, yaml_util
 from transformers import AutoTokenizer, LlamaForCausalLM
-from llm.glmtts import GLMTTS
-from utils.audio import mel_spectrogram
+from glm_tts.llm.glmtts import GLMTTS
+from glm_tts.utils.audio import mel_spectrogram
 from functools import partial
 # --- Global Constants ---
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -390,7 +390,10 @@ def load_models(use_phoneme=False, sample_rate=24000):
     speech_tokenizer = SpeechTokenizer(_model, _feature_extractor)
 
     # Load Frontends
-    frontend, text_frontend = load_frontends(speech_tokenizer, sample_rate=sample_rate, use_phoneme=use_phoneme)
+    frontend, text_frontend = load_frontends(
+        speech_tokenizer, sample_rate=sample_rate, use_phoneme=use_phoneme,
+        frontend_dir=os.path.join("glm_tts", "frontend")
+    )
 
     llama_path = os.path.join("ckpt", "llm")
 

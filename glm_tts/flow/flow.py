@@ -18,8 +18,8 @@ Manages the DiT model initialization and the ODE sampling process.
 
 import torch
 from torch.nn import functional as F
-from cosyvoice.utils.mask import make_pad_mask
-from flow.dit import DiT
+from glm_tts.cosyvoice.utils.mask import make_pad_mask
+from glm_tts.flow.dit import DiT
 
 
 class Flow(torch.nn.Module):

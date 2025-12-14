@@ -46,7 +46,7 @@ train_conf:
 # model params
 # for all class/function included in this repo, we use !<name> or !<new> for intialization, so that user may find all corresponding class/function according to one single yaml.
 # for system/third_party class/function, we do not require this.
-llm: !new:llm.glmtts.GLMTTS
+llm: !new:glm_tts.llm.glmtts.GLMTTS
   llama_cfg_path: ckpt/llm/config.json
   mode: PRETRAIN
   

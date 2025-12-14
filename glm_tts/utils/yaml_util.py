@@ -17,13 +17,19 @@ from transformers import WhisperFeatureExtractor
 import glob
 import os
 import safetensors
-from utils.whisper_models.configuration_whisper import WhisperVQConfig
-from utils.whisper_models.modeling_whisper import WhisperVQEncoder
+from glm_tts.utils.whisper_models.configuration_whisper import WhisperVQConfig
+from glm_tts.utils.whisper_models.modeling_whisper import WhisperVQEncoder
 
 def load_flow_model(flow_ckpt_path, config_path, device):
+    
     with open(config_path, 'r') as f:
-        scratch_configs = load_hyperpyyaml(f)
-        flow = scratch_configs['flow']
+        content = f.read()
+
+    # Insert "glm_tts" into package path
+    content = content.replace("!new:", "!new:glm_tts.")
+
+    scratch_configs = load_hyperpyyaml(content)
+    flow = scratch_configs['flow']
 
     tmp = torch.load(flow_ckpt_path, map_location=device)
     if type(tmp) == dict:

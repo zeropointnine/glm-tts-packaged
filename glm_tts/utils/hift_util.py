@@ -15,9 +15,9 @@
 import torch
 import pathlib
 from typing import Union
-from utils.audio import mel_spectrogram
-from cosyvoice.hifigan_cosy2.f0_predictor import ConvRNNF0Predictor
-from cosyvoice.hifigan_cosy2.generator import HiFTGenerator
+from glm_tts.utils.audio import mel_spectrogram
+from glm_tts.cosyvoice.hifigan_cosy2.f0_predictor import ConvRNNF0Predictor
+from glm_tts.cosyvoice.hifigan_cosy2.generator import HiFTGenerator
 
 class HiFTInference:
     def __init__(self, 
@@ -126,9 +126,7 @@ class HiFTInference:
             center=False
         )
 
-def load_hift(device: str = "cuda", load_only_nsf: bool = False) -> HiFTInference:
+def load_hift(device: str = "cuda", ckpt_path: str = "ckpt/hift/hift.pt", load_only_nsf: bool = False) -> HiFTInference:
     """Factory function to load HiFT model."""
-    # Update this path to your actual relative path for the open source release
-    ckpt_path = 'ckpt/hift/hift.pt'
     print(f"Loading HiFT model from {ckpt_path} on {device}...")
     return HiFTInference(ckpt_path, device=device, load_only_nsf=load_only_nsf)

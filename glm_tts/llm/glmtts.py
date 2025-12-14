@@ -18,7 +18,7 @@ import torch
 import torch.nn as nn
 from transformers import LlamaConfig, LlamaForCausalLM
 from peft import LoraConfig, get_peft_model, TaskType
-from cosyvoice.utils import common
+from glm_tts.cosyvoice.utils import common
 
 
 class GLMTTS(nn.Module):
@@ -230,6 +230,11 @@ class GLMTTS(nn.Module):
         past_key_values = None
 
         for i in range(max_len):
+
+            if PRINT_PROGRESS:
+                status_text = f"< {i+1}/{max_len} >"
+                print("\x1b[1G" + status_text, end="\033[K", flush=True)
+
             model_input = {
                 "inputs_embeds": inputs_embeds,
                 "output_hidden_states": True,
@@ -275,6 +280,9 @@ class GLMTTS(nn.Module):
             # Prepare input for the next step (auto-regressive)
             inputs_embeds = self.llama_embedding(torch.LongTensor([top_ids]).to(device))[None]
 
+        if PRINT_PROGRESS:
+            print()
+
         # 5. Validation and Output Construction
         # Ensure all tokens are within the valid audio token range
         for token in out_tokens:
@@ -284,3 +292,5 @@ class GLMTTS(nn.Module):
         
         # Return tokens relative to Audio Token Start (ATS)
         return torch.tensor([out_tokens], dtype=torch.int64, device=device) - self.ats
+
+PRINT_PROGRESS = True

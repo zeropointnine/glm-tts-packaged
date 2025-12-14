@@ -27,9 +27,9 @@ import torchaudio
 import torchaudio.compliance.kaldi as kaldi
 
 # Local imports
-from utils.glm_g2p import G2P_zh, process_one, is_chinese
-from utils.file_utils import load_wav
-from cosyvoice.utils.frontend_utils import (
+from glm_tts.utils.glm_g2p import G2P_zh, process_one, is_chinese
+from glm_tts.utils.file_utils import load_wav
+from glm_tts.cosyvoice.utils.frontend_utils import (
     contains_chinese, remove_bracket, replace_asterisk_with_multiply,
     spell_out_number, tn_scientific_notation, split_hard,
     split_into_min_sentence, multi_line_process, PUNCTUATION_CHARS,
@@ -140,11 +140,13 @@ class TextFrontEnd:
             self.frd.enable_pinyin_mix(True)
             self.frd.set_breakmodel_index(1)
         else:
+            # Changed overwrite_cache to False to match EnNormalizer
+            # and to prevent multi-second wait on initialization
             self.zh_tn_model = ZhNormalizer(
                 remove_erhua=False,
                 full_to_half=True,
                 remove_interjections=False,
-                overwrite_cache=True
+                overwrite_cache=False
             )
             self.en_tn_model = EnNormalizer()
 
