@@ -1,3 +1,15 @@
+# glm-tts-packaged
+
+This is a fork of glm-tts, designed to make it usable as an installable package for the purpose of utilizing its inference-related code.
+
+- Modules have been moved to the `glm_tts` package, and imports have been edited.
+- A `pyproject.toml` file has been introduced to supercede the `requirements.txt` file, with dependencies unpinned.
+- Non-inference-related dependencies and code (eg, related to training) have not been removed, for the time being.
+
+The original README.MD text is included below:
+
+---
+
 # GLM-TTS: Controllable & Emotion-Expressive Zero-shot TTS with Multi-Reward Reinforcement Learning
 
 [中文阅读](README_zh.md)
