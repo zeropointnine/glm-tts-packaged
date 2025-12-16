@@ -53,8 +53,7 @@ class Vocos2DInference:
         xs_mel_tr: torch.Tensor = xs_mel.transpose(-1, -2) - MEL_LOGDIFF
         return xs_mel_tr
 
-def load_vocos_jit(device: str = "cuda") -> Vocos2DInference:
+def load_vocos_jit(device: str = "cuda", file_path: str = "ckpt/vocos2d/generator_jit.ckpt") -> Vocos2DInference:
     """Factory function to load Vocos model"""
-    ckpt_path = 'ckpt/vocos2d/generator_jit.ckpt'
-    print(f"Loading Vocos JIT model from {ckpt_path} on {device}...")
-    return Vocos2DInference(ckpt_path, device=device)
+    print(f"Loading Vocos JIT model from {file_path} on {device}...")
+    return Vocos2DInference(file_path, device=device)

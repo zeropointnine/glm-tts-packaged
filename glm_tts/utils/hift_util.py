@@ -126,7 +126,7 @@ class HiFTInference:
             center=False
         )
 
-def load_hift(device: str = "cuda", ckpt_path: str = "ckpt/hift/hift.pt", load_only_nsf: bool = False) -> HiFTInference:
+def load_hift(device: str = "cuda", file_path: str = "ckpt/hift/hift.pt", load_only_nsf: bool = False) -> HiFTInference:
     """Factory function to load HiFT model."""
-    print(f"Loading HiFT model from {ckpt_path} on {device}...")
-    return HiFTInference(ckpt_path, device=device, load_only_nsf=load_only_nsf)
+    print(f"Loading HiFT model from {file_path} on {device}...")
+    return HiFTInference(file_path, device=device, load_only_nsf=load_only_nsf)
