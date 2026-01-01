@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "glm-tts-packaged"
-version = "0.1.0"
+version = "0.1.1"
 description = "Packaged version of GLM-TTS"
 readme = "README.md"
 requires-python = ">=3.8"
