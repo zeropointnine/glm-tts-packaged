@@ -198,7 +198,7 @@ def split_hard(sent_units, max_text_len=40):
     for sent in sent_units:
         assert '' not in map(str.strip, sent) # Ensure no pure space units
         while count_char(sent) > max_text_len: # Sentence too long, cut it
-            if sent[max_text_len].strip() in list(PUNCTUATION_CHARS): 
+            if len(sent) > max_text_len and sent[max_text_len].strip() in list(PUNCTUATION_CHARS): # fix off-by-one error
                 # If the cut point is a symbol, include the next char to avoid starting next line with punctuation
                 result.append(sent[:max_text_len+1])
                 sent = sent[max_text_len+1:]
