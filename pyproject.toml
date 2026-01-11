@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "glm-tts-packaged"
-version = "0.1.1"
+version = "0.1.2"
 description = "Packaged version of GLM-TTS"
 readme = "README.md"
 requires-python = ">=3.8"
@@ -18,6 +18,7 @@ dependencies = [
     "tiktoken>=0.6.0",
     "torch>=2.3.1",
     "torchaudio>=2.3.1",
+    "torchcodec",
     "tqdm>=4.66.4",
     "train>=0.0.5",
     "transformers>=4.57.3",
@@ -32,7 +33,7 @@ dependencies = [
     "openai_whisper>=20231117",
     "contractions>=0.1.73",
     "debugpy>=1.8.0",
-    "deepspeed>=0.14.5",
+    "deepspeed==0.14.5",
     "einops>=0.8.1",
     "emoji>=2.14.1",
     "evaluation>=0.0.2",
@@ -52,6 +53,7 @@ dependencies = [
     "PyYAML>=6.0.3",
     "regex>=2023.12.25",
     "Requests>=2.32.5",
+    "ruamel.yaml==0.17.40",
     "safetensors>=0.7.0",
 
     "soxr"
